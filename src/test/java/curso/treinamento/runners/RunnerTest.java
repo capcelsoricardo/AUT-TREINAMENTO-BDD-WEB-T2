@@ -10,7 +10,7 @@ import cucumber.api.junit.Cucumber;
 @CucumberOptions(
 		features = {"src/test/resources/features/"},
 		glue	 = {"curso.treinamento.steps"},
-		snippets = SnippetType.CAMELCASE	
+		snippets = SnippetType.UNDERSCORE
 		)
 
 
