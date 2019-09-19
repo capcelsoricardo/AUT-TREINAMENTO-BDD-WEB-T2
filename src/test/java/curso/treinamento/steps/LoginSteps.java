@@ -2,68 +2,45 @@ package curso.treinamento.steps;
 
 
 import org.junit.Assert;
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
 
 import cucumber.api.java.pt.Dado;
 import cucumber.api.java.pt.Então;
 import cucumber.api.java.pt.Quando;
+import curso.treinamento.pages.HomePage;
+import curso.treinamento.pages.LoginPage;
+import curso.treinamento.setup.Hooks;
+
 
 public class LoginSteps {
 	
+	private LoginPage loginPage = new LoginPage(Hooks.getDriver());
+	private HomePage   homePage = new HomePage(Hooks.getDriver());
+	
 
-//	public WebDriver driver;
-//	
-//	@Dado("que eu deseje logar no sistema")
-//	public void que_eu_deseje_logar_no_sistema() {
-//		
-//		System.setProperty("webdriver.chrome.driver", "src/test/resources/mac/chromedriver");
-//		driver = new ChromeDriver();
-//		
-//		driver.get("https://www.phptravels.net/admin");		
-//		
-//	}
-//
-//	@Quando("faço login com o usuário {string} e senha {string}")
-//	public void faço_login_com_o_usuário_e_senha(String user, String pass) {
-//		
-//		driver.findElement(By.name("email")).sendKeys(user);
-//		driver.findElement(By.xpath("//input[@name='password']")).sendKeys(pass);		
-//		driver.findElement(By.xpath("//span[text()='Login']")).click();
-//		
-//		
-//	}
-//
-//	@Então("sou autenticado com sucesso")
-//	public void sou_autenticado_com_sucesso() throws InterruptedException {
-//		
-//		Thread.sleep(5000);
-//		Assert.assertTrue(driver.findElement(By.xpath("//a[@href='https://www.phptravels.net/admin/logout']")).isDisplayed());
-//	}
-//	
-//	@Dado("que eu esteja na tela de login")
-//	public void que_eu_esteja_na_tela_de_login() {
-//		
-//		System.setProperty("webdriver.chrome.driver", "src/test/resources/mac/chromedriver");
-//		driver = new ChromeDriver();
-//		
-//		driver.get("https://www.phptravels.net/admin");
-//
-//	}
-//
-//	@Então("é apresentado a mensagem {string}")
-//	public void é_apresentado_a_mensagem(String mensagem) {
-//		
-//		System.out.println(driver.findElement(By.xpath("//div[@class='alert alert-danger loading wow fadeIn animated animated']//p")).getText());
-//		
-//		
-//		Assert.assertEquals(mensagem, driver.findElement(By.xpath("//div[@class='alert alert-danger loading wow fadeIn animated animated']//p")).getText());
-//		
-//		
-//		//Assert.assertTrue("Mensagem 'The Email field must contain a valid email address.' não apresentada.",
-//		//		driver.findElement(By.xpath("//p[text()='"+ mensagem +"']")).isDisplayed());
-//		
-//	}
+	@Dado("que eu esteja na tela de login")
+	public void que_eu_deseje_logar_no_sistema() throws InterruptedException {
+		
+		Assert.assertTrue("Página Login não foi apresentada.", loginPage.validar_pagina());
+	}
+
+	@Quando("faço login com o usuário {string} e senha {string}")
+	public void faco_login_com_o_usuário_e_senha(String user, String pass) {
+		
+		loginPage.preencher_email(user);
+		loginPage.preencher_password(pass);
+		loginPage.clicar_botao_login();
+	}
+
+	@Então("sou autenticado com sucesso")
+	public void sou_autenticado_com_sucesso() throws InterruptedException {
+		
+		Assert.assertTrue("Login não realizado com sucesso!.", homePage.validar_pagina());
+	}
+
+	@Então("é apresentado a mensagem {string}")
+	public void é_apresentado_a_mensagem(String mensagem) {
+		
+		
+	}
 
 }

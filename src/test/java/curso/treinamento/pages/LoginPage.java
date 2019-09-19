@@ -5,6 +5,8 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
+import curso.treinamento.utils.Helper;
+
 public class LoginPage {
 	
 	public LoginPage(WebDriver driver) { 
@@ -31,6 +33,12 @@ public class LoginPage {
 	
 	public void clicar_botao_login() {
 		botaoLogin.click();
+	}
+	
+	public Boolean validar_pagina() { 
+		
+		Helper.aguardar_elemento(10, botaoLogin);
+		return botaoLogin.isDisplayed();
 	}
 
 
