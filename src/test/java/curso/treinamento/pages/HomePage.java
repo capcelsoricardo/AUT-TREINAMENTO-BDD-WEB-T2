@@ -13,7 +13,7 @@ public class HomePage {
 		PageFactory.initElements(driver, this);
 	}
 	
-	@FindBy(xpath = "//a[@href='https://www.phptravels.net/admin/logout']")
+	@FindBy(xpath = "//strong[contains(text(),'Logout')]")
 	private WebElement linkLogout;
 		
 	public Boolean validar_pagina() { 

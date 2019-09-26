@@ -1,11 +1,14 @@
 package curso.treinamento.pages;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
+import curso.treinamento.setup.Hooks;
 import curso.treinamento.utils.Helper;
+import junit.framework.Assert;
 
 public class LoginPage {
 	
@@ -22,6 +25,22 @@ public class LoginPage {
 	@FindBy(xpath = "//span[text()='Login']")
 	private WebElement botaoLogin;
 	
+	@FindBy(xpath = "//span[text()='Remove Frame']")
+	private WebElement linkRemoveFrame;
+	
+	@FindBy(xpath = "//p[text()='The Email field must contain a valid email address.']")
+	private WebElement msgEmailInvalido;
+	
+	public boolean validar_mensagem_email_invalido() {
+		
+		return Helper.elemento_existe(msgEmailInvalido, 10);	
+	}
+	
+	
+	public void clicar_remove_frame() { 		
+		if(Helper.elemento_existe(linkRemoveFrame, 10))
+			linkRemoveFrame.click();
+	}
 	
 	public void preencher_email(String email) { 
 		campoEmail.sendKeys(email);
@@ -40,6 +59,5 @@ public class LoginPage {
 		Helper.aguardar_elemento(10, botaoLogin);
 		return botaoLogin.isDisplayed();
 	}
-
 
 }
