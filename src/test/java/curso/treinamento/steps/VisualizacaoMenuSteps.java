@@ -33,7 +33,22 @@ public class VisualizacaoMenuSteps {
 		Assert.assertTrue("Submenu "+ subMenuCars + " NÃO apresentado.", menuPage.validar_submenu_cars(subMenuCars));
 		Assert.assertTrue("Submenu "+ subMenuExtras + " NÃO apresentado.", menuPage.validar_submenu_cars(subMenuExtras));
 		Assert.assertTrue("Submenu "+ subMenuSettings + " NÃO apresentado.", menuPage.validar_submenu_cars(subMenuSettings));
+	}
+	
+	@Quando("acesso o menu Accounts")
+	public void acesso_o_menu_Accounts() {
 		
+		menuPage.clicar_menu_accounts();	 
 		
 	}
+
+	@Então("são apresentados os itens {string}, {string}, {string} e {string}")
+	public void são_apresentados_os_itens_e(String subMenuAdmins, String subMenuSuppliers, String subMenuCustomers, String subMenuGuestCustomers) {
+		
+		Assert.assertTrue("Submenu "+ subMenuAdmins + " NÃO apresentado.", menuPage.validar_submenu_accounts(subMenuAdmins));
+		Assert.assertTrue("Submenu "+ subMenuSuppliers + " NÃO apresentado.", menuPage.validar_submenu_accounts(subMenuSuppliers));
+		Assert.assertTrue("Submenu "+ subMenuCustomers + " NÃO apresentado.", menuPage.validar_submenu_accounts(subMenuCustomers));
+		Assert.assertTrue("Submenu "+ subMenuGuestCustomers + " NÃO apresentado.", menuPage.validar_submenu_accounts(subMenuGuestCustomers));
+	   
+	} 	
 }
