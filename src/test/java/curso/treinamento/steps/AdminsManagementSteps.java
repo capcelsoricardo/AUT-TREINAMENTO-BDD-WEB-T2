@@ -18,11 +18,11 @@ public class AdminsManagementSteps {
 	MenuPage menuPage = new MenuPage(Hooks.getDriver());
 	AdminsManagementPage adminsManagementPage = new AdminsManagementPage(Hooks.getDriver());
 	AddAdminPage addAdminPage = new AddAdminPage(Hooks.getDriver());
-	
-	
+		
 	
 	@Dado("que eu esteja na tela Admins Management")
 	public void que_eu_esteja_na_tela_Admins_Management() {
+						
 		menuPage.clicar_submenu("ACCOUNTS", "Admins");
 
 		Assert.assertTrue("Página Admins Management NÃO apresentada.", adminsManagementPage.validar_pagina());
@@ -62,7 +62,7 @@ public class AdminsManagementSteps {
 	public void incluo_um_adminstrador_com_os_valores(String firstName, String lastName, String email, String password, String mobileNumber, 
 			String country, String address1, String address2, String status, String add, String edit, String remove) {
 	    
-		adminsManagementPage.clicar_btn_add();
+		adminsManagementPage.clicar_btn_add();		
 		
 		Assert.assertTrue("Página Add Admin NÃO apresentada.", addAdminPage.validar_pagina());
 		

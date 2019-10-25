@@ -14,14 +14,12 @@ public class Helper {
 	
 	public static List<Map<String, String>> dataTable;
 	
-	public static void aguardar_elemento(int timeout, WebElement elemento) { 
-		
+	public static void aguardar_elemento(int timeout, WebElement elemento) { 		
 		WebDriverWait aguardar = new WebDriverWait(Hooks.getDriver(), timeout);
 		aguardar.until(ExpectedConditions.visibilityOf(elemento));		
 	}
 	
-	public static boolean elemento_existe(WebElement elemento, int timeout) { 
-		
+	public static boolean elemento_existe(WebElement elemento, int timeout) { 		
 		try {
 			aguardar_elemento(timeout, elemento);
 			
@@ -35,4 +33,7 @@ public class Helper {
 	public static void create_datatable(DataTable dataTable_) { 
 		dataTable = dataTable_.asMaps(String.class, String.class);
 	}
+	
+	
+
 }
