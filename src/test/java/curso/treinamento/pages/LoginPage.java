@@ -53,7 +53,7 @@ public class LoginPage {
 	
 	public Boolean validar_pagina() { 
 		
-		Helper.aguardar_elemento(10, botaoLogin);
+		Helper.aguardar_elemento_visivel(botaoLogin, 10);
 		return botaoLogin.isDisplayed();
 	}
 

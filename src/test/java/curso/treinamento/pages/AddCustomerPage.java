@@ -10,13 +10,13 @@ import org.openqa.selenium.support.ui.Select;
 import curso.treinamento.setup.Hooks;
 import curso.treinamento.utils.Helper;
 
-public class AddAdminPage {
+public class AddCustomerPage {
 	
-	public AddAdminPage(WebDriver driver) { 
+	public AddCustomerPage(WebDriver driver) { 
 		PageFactory.initElements(driver, this);		
 	}
 	
-	@FindBy(xpath = "//div[text()='Add Admin']")
+	@FindBy(xpath = "//div[text()='Add Customer']")
 	private WebElement tituloPagina;
 	
 	@FindBy(name = "fname")
@@ -79,10 +79,7 @@ public class AddAdminPage {
 		cmpMobileNumber.sendKeys(mobileNumber);
 	}
 	
-	public void selecionar_country(String country) { 
-		//	Select combo = new Select(comboBoxCountry);
-		//	combo.selectByVisibleText(country);
-		
+	public void selecionar_country(String country) { 		
 		new Select(comboBoxCountry).selectByVisibleText(country); 				
 	}
 	
@@ -119,6 +116,4 @@ public class AddAdminPage {
 	public boolean validar_mensagem_alteracao() { 
 		return Helper.elemento_presente(By.xpath("//h4[text()='Changes Saved!']"), 10);		
 	}
-	
-
 }

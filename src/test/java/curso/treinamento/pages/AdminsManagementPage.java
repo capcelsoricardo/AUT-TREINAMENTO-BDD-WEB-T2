@@ -22,13 +22,17 @@ public class AdminsManagementPage {
 	private WebElement tituloPagina;
 	
 	
-	public Boolean validar_email_na_tabela(String email) { 
-		WebElement valorEmail = Hooks.getDriver().findElement(By.xpath("//td//a[text()='" + email + "']"));
-		
-		return Helper.elemento_existe(valorEmail, 10);
+	public boolean validar_email_na_tabela(String email) { 
+				
+		try {								
+			return Helper.elemento_existe(Hooks.getDriver().findElement(By.xpath("//td//a[text()='" + email + "']")), 10);
+		} catch (Exception e) {
+			return false;
+		}
+									
 	}
 		
-	public Boolean validar_pagina() { 
+	public boolean validar_pagina() { 
 		
 		return Helper.elemento_existe(tituloPagina, 10);		
 	}
@@ -37,4 +41,12 @@ public class AdminsManagementPage {
 		btnAdd.click();
 	}
 
+	public void clicar_btn_editar(String email) { 		
+		Hooks.getDriver().findElement(By.xpath("(//a[text()='"+ email +"']//following::i[@class='fa fa-edit'])[1]")).click();
+	}
+	
+	
+	public void clicar_btn_excluir(String email) { 		
+		Hooks.getDriver().findElement(By.xpath("(//a[text()='"+ email +"']//following::i[@class='fa fa-times'])[1]")).click();				
+	}
 }

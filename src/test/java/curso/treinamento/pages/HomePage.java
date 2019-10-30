@@ -18,7 +18,7 @@ public class HomePage {
 		
 	public Boolean validar_pagina() { 
 		
-		Helper.aguardar_elemento(10, linkLogout);
+		Helper.aguardar_elemento_visivel(linkLogout, 10);
 		return linkLogout.isDisplayed();		
 	}
 

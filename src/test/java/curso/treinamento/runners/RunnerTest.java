@@ -10,9 +10,8 @@ import cucumber.api.junit.Cucumber;
 @CucumberOptions(
 		features = {"src/test/resources/features/"},
 		glue	 = {"curso.treinamento.steps", "curso.treinamento.setup"},
-		tags	 = {"@IncluirAdministrador"},
+		tags	 = {"@ExcluirWidgets"},
 		snippets = SnippetType.UNDERSCORE
 		)
-
 
 public class RunnerTest {}
