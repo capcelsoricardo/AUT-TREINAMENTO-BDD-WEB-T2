@@ -20,11 +20,12 @@ public class Hooks {
 	@Before
 	public void startTest(Scenario scenario) {
 		
-		ChromeOptions options = new ChromeOptions();
-		options.addArguments("--headless");
+		//ChromeOptions options = new ChromeOptions();
+		//options.addArguments("--headless");
 		
-		System.setProperty("webdriver.chrome.driver", "src/test/resources/mac/chromedriver");
-		driver = new ChromeDriver(options);
+		//System.setProperty("webdriver.chrome.driver", "src/test/resources/mac/chromedriver");
+		System.setProperty("webdriver.chrome.driver", "src/test/resources/windows/chromedriver.exe");
+		driver = new ChromeDriver();
 				
 		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 		
