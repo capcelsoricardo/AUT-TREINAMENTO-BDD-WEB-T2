@@ -5,6 +5,8 @@ import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.remote.CapabilityType;
 
 import cucumber.api.Scenario;
 import cucumber.api.java.After;
@@ -18,13 +20,18 @@ public class Hooks {
 	@Before
 	public void startTest(Scenario scenario) {
 		
-		System.setProperty("webdriver.chrome.driver", "src/test/resources/mac/chromedriver");
-		driver = new ChromeDriver();
+		ChromeOptions options = new ChromeOptions();
+		options.addArguments("--headless");
 		
+		System.setProperty("webdriver.chrome.driver", "src/test/resources/mac/chromedriver");
+		driver = new ChromeDriver(options);
+				
 		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 		
 		driver.manage().window().fullscreen();
-		driver.get(bundle.getString("env.url"));		
+		driver.get(bundle.getString("env.url"));
+		
+		
 	}
 	
 	@After
