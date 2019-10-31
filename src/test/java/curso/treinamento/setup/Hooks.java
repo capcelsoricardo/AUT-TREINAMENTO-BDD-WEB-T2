@@ -32,7 +32,11 @@ public class Hooks {
 		}
 		
 		ChromeOptions chromeOptions = new ChromeOptions();
+		chromeOptions.addArguments("--no-sandbox");
+		chromeOptions.addArguments("--disable-browser-side-navigation");
+		chromeOptions.addArguments("--disable-gpu");
 		chromeOptions.setHeadless(true);
+
 		
 		driver = new ChromeDriver(chromeOptions);
 				
