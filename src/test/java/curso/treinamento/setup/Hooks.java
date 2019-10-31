@@ -6,6 +6,7 @@ import java.util.concurrent.TimeUnit;
 import org.junit.Assert;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 
 import cucumber.api.Scenario;
 import cucumber.api.java.After;
@@ -30,7 +31,10 @@ public class Hooks {
 			break;
 		}
 		
-		driver = new ChromeDriver();
+		ChromeOptions chromeOptions = new ChromeOptions();
+		chromeOptions.setHeadless(true);
+		
+		driver = new ChromeDriver(chromeOptions);
 				
 		//driver.manage().timeouts().implicitlyWait(TIMEOUT_DEFAULT, TimeUnit.SECONDS);
 		
