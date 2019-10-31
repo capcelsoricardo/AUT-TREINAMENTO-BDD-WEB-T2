@@ -19,7 +19,7 @@ public class Hooks {
 	public static int TIMEOUT_DEFAULT = Integer.parseInt(bundle.getString("env.timeout.default"));
 	
 	@Before
-	public void startTest(Scenario scenario) {
+	public void start_test(Scenario scenario) {
 														
 		switch (bundle.getString("env.navegador").toUpperCase()) {
 			case "CHROME":
@@ -40,7 +40,7 @@ public class Hooks {
 	}
 	
 	@After
-	public void tearDown(Scenario scenario) { 
+	public void tear_down(Scenario scenario) { 
 		Helper.screenshot(scenario);
 		driver.close();
 	}
