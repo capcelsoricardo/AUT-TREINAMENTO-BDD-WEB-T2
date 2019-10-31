@@ -62,18 +62,18 @@ public class MenuPage {
 	}
 	
 	public boolean validar_submenu_cars(String subMenu) { 		
-		return Helper.elemento_existe(Hooks.getDriver().findElement(By.xpath("//a[@href='#Cars']/following::a[text()='"+subMenu+"']")), 10);  			
+		return Helper.elemento_existe(Hooks.getDriver().findElement(By.xpath("//a[@href='#Cars']/following::a[text()='"+subMenu+"']")), Hooks.TIMEOUT_DEFAULT);  			
 	}
 	
 	public boolean validar_submenu_accounts(String subMenu) { 		
-		return Helper.elemento_existe(Hooks.getDriver().findElement(By.xpath("//a[@href='#ACCOUNTS']/following::a[text()='"+subMenu+"']")), 10);  			
+		return Helper.elemento_existe(Hooks.getDriver().findElement(By.xpath("//a[@href='#ACCOUNTS']/following::a[text()='"+subMenu+"']")), Hooks.TIMEOUT_DEFAULT);  			
 	}
 	
 	public boolean validar_submenu_tours(String subMenu) { 		
-		return Helper.elemento_existe(Hooks.getDriver().findElement(By.xpath("//a[@href='#Tours']/following::a[text()='"+subMenu+"']")), 10);  			
+		return Helper.elemento_existe(Hooks.getDriver().findElement(By.xpath("//a[@href='#Tours']/following::a[text()='"+subMenu+"']")), Hooks.TIMEOUT_DEFAULT);  			
 	}
 	
 	public boolean validar_submenu_travelhope_hotels(String subMenu) { 		
-		return Helper.elemento_existe(Hooks.getDriver().findElement(By.xpath("//a[@href='#TravelhopeHotels']/following::a[text()='"+subMenu+"']")), 10);  			
+		return Helper.elemento_existe(Hooks.getDriver().findElement(By.xpath("//a[@href='#TravelhopeHotels']/following::a[text()='"+subMenu+"']")), Hooks.TIMEOUT_DEFAULT);  			
 	}
 }

@@ -41,7 +41,7 @@ public class WidgetsManagementPage {
 	public boolean validar_nome_widget_na_tabela(String nome) {
 
 		try {
-			return Helper.elemento_existe(Hooks.getDriver().findElement(By.xpath("//td[text()='"+ nome +"']")), 10);
+			return Helper.elemento_existe(Hooks.getDriver().findElement(By.xpath("//td[text()='"+ nome +"']")), Hooks.TIMEOUT_DEFAULT);
 		} catch (Exception e) {
 			return false;
 		}

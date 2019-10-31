@@ -22,13 +22,13 @@ public class CustomersManagementPage {
 	private WebElement tituloPagina;
 
 	public Boolean validar_pagina() {
-		return Helper.elemento_existe(tituloPagina, 10);
+		return Helper.elemento_existe(tituloPagina, Hooks.TIMEOUT_DEFAULT);
 	}
 
 	public Boolean validar_email_na_tabela(String email) {
 
 		try {
-			return Helper.elemento_existe(Hooks.getDriver().findElement(By.xpath("//td//a[text()='" + email + "']")), 10);
+			return Helper.elemento_existe(Hooks.getDriver().findElement(By.xpath("//td//a[text()='" + email + "']")), Hooks.TIMEOUT_DEFAULT);
 		} catch (Exception e) {
 			return false;
 		}

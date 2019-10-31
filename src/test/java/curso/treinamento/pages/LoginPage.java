@@ -5,6 +5,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
+import curso.treinamento.setup.Hooks;
 import curso.treinamento.utils.Helper;
 
 public class LoginPage {
@@ -30,12 +31,12 @@ public class LoginPage {
 	
 	public boolean validar_mensagem_email_invalido() {
 		
-		return Helper.elemento_existe(msgEmailInvalido, 10);	
+		return Helper.elemento_existe(msgEmailInvalido, Hooks.TIMEOUT_DEFAULT);	
 	}
 	
 	
 	public void clicar_remove_frame() { 		
-		if(Helper.elemento_existe(linkRemoveFrame, 10))
+		if(Helper.elemento_existe(linkRemoveFrame, 1))
 			linkRemoveFrame.click();
 	}
 	
@@ -53,7 +54,7 @@ public class LoginPage {
 	
 	public Boolean validar_pagina() { 
 		
-		Helper.aguardar_elemento_visivel(botaoLogin, 10);
+		Helper.aguardar_elemento_visivel(botaoLogin, Hooks.TIMEOUT_DEFAULT);
 		return botaoLogin.isDisplayed();
 	}
 

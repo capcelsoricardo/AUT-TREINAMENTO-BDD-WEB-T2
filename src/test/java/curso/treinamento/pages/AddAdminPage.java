@@ -117,7 +117,7 @@ public class AddAdminPage {
 	}
 	
 	public boolean validar_mensagem_alteracao() { 
-		return Helper.elemento_presente(By.xpath("//h4[text()='Changes Saved!']"), 10);		
+		return Helper.elemento_presente(By.xpath("//h4[text()='Changes Saved!']"), Hooks.TIMEOUT_DEFAULT);		
 	}
 	
 

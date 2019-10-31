@@ -3,39 +3,45 @@ package curso.treinamento.setup;
 import java.util.ResourceBundle;
 import java.util.concurrent.TimeUnit;
 
+import org.junit.Assert;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.chrome.ChromeOptions;
-import org.openqa.selenium.remote.CapabilityType;
 
 import cucumber.api.Scenario;
 import cucumber.api.java.After;
 import cucumber.api.java.Before;
+import curso.treinamento.utils.Helper;
 
 public class Hooks {
 	
 	public static WebDriver driver;
 	public static ResourceBundle bundle = ResourceBundle.getBundle("project");
+	public static int TIMEOUT_DEFAULT = Integer.parseInt(bundle.getString("env.timeout.default"));
 	
 	@Before
 	public void startTest(Scenario scenario) {
+														
+		switch (bundle.getString("env.navegador").toUpperCase()) {
+			case "CHROME":
+				System.setProperty("webdriver.chrome.driver", Helper.get_path_driver(bundle.getString("env.navegador")));
+			break;						
+		default:
+			Assert.fail("Opção de navegador inválida.");
+			break;
+		}
 		
-		ChromeOptions options = new ChromeOptions();
-		options.addArguments("--headless");
-		
-		System.setProperty("webdriver.chrome.driver", "src/test/resources/mac/chromedriver");
-		driver = new ChromeDriver(options);
+		driver = new ChromeDriver();
 				
-		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+		//driver.manage().timeouts().implicitlyWait(TIMEOUT_DEFAULT, TimeUnit.SECONDS);
 		
 		driver.manage().window().fullscreen();
-		driver.get(bundle.getString("env.url"));
 		
-		
+		driver.get(bundle.getString("env.url"));									
 	}
 	
 	@After
 	public void tearDown(Scenario scenario) { 
+		Helper.screenshot(scenario);
 		driver.close();
 	}
 	
