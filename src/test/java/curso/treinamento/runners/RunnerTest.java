@@ -10,10 +10,11 @@ import cucumber.api.junit.Cucumber;
 @CucumberOptions(
 		features = {"src/test/resources/features/"},
 		glue	 = {"curso.treinamento.steps", "curso.treinamento.setup"},
-		tags	 = {"@LoginComSucesso or @LoginInvalido"},
+		tags	 = {"@LoginComSucesso"},
 		snippets = SnippetType.UNDERSCORE,
 		monochrome = true,
-		plugin = {"pretty", "html:target/report-html", "json:target/report.json"} 
+		plugin = {"pretty", "html:target/cucumber-html-report", "json:target/cucumber.json", 
+				"pretty:target/cucumber-pretty.txt", "junit:target/cucumber-results.xml"} 
 		
 		)
 
