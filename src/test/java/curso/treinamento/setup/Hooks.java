@@ -30,15 +30,8 @@ public class Hooks {
 			Assert.fail("Opção de navegador inválida.");
 			break;
 		}
-		
-		ChromeOptions chromeOptions = new ChromeOptions();
-		chromeOptions.addArguments("--no-sandbox");
-		chromeOptions.addArguments("--disable-browser-side-navigation");
-		chromeOptions.addArguments("--disable-gpu");
-		chromeOptions.setHeadless(true);
-
-		
-		driver = new ChromeDriver(chromeOptions);
+						
+		driver = new ChromeDriver();
 				
 		//driver.manage().timeouts().implicitlyWait(TIMEOUT_DEFAULT, TimeUnit.SECONDS);
 		

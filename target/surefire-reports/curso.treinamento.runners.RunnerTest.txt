@@ -1,4 +1,18 @@
 -------------------------------------------------------------------------------
 Test set: curso.treinamento.runners.RunnerTest
 -------------------------------------------------------------------------------
-Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 18.609 sec
+Tests run: 2, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 41.556 sec <<< FAILURE!
+Realizar login com sucesso(Login)  Time elapsed: 30.808 sec  <<< ERROR!
+org.openqa.selenium.TimeoutException: Expected condition failed: waiting for visibility of [[ChromeDriver: chrome on MAC (35cce8f38cbe0dfa1919ba73ffd4c3f0)] -> xpath: //span[text()='Login']] (tried for 20 second(s) with 500 milliseconds interval)
+Build info: version: '3.141.59', revision: 'e82be7d358', time: '2018-11-14T08:17:03'
+System info: host: 'MacBook-Pro-de-Celso.local', ip: '2804:14c:a9:87ca:c868:6f35:7006:13d9%en0', os.name: 'Mac OS X', os.arch: 'x86_64', os.version: '10.14.6', java.version: '1.8.0_181'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 78.0.3904.87, chrome: {chromedriverVersion: 78.0.3904.70 (edb9c9f3de024..., userDataDir: /var/folders/gs/36_mxxyx4c3...}, goog:chromeOptions: {debuggerAddress: localhost:53361}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: MAC, platformName: MAC, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify}
+Session ID: 35cce8f38cbe0dfa1919ba73ffd4c3f0
+	at org.openqa.selenium.support.ui.WebDriverWait.timeoutException(WebDriverWait.java:95)
+	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:272)
+	at curso.treinamento.utils.Helper.aguardar_elemento_visivel(Helper.java:33)
+	at curso.treinamento.pages.LoginPage.validar_pagina(LoginPage.java:57)
+	at curso.treinamento.steps.LoginSteps.que_eu_deseje_logar_no_sistema(LoginSteps.java:25)
+	at ✽.que eu esteja na tela de login(file:src/test/resources/features/login.feature:7)
+

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<testsuite tests="1" failures="0" name="curso.treinamento.runners.RunnerTest" time="18.126" errors="0" skipped="0">
+<testsuite tests="2" failures="0" name="curso.treinamento.runners.RunnerTest" time="40.52" errors="1" skipped="0">
   <properties>
     <property name="java.runtime.name" value="Java(TM) SE Runtime Environment"/>
     <property name="sun.boot.library.path" value="/Library/Java/JavaVirtualMachines/jdk1.8.0_181.jdk/Contents/Home/jre/lib"/>
@@ -64,5 +64,55 @@
     <property name="ftp.nonProxyHosts" value="local|*.local|169.254/16|*.169.254/16|180.128.170.95:80|*.180.128.170.95:80"/>
     <property name="sun.cpu.isalist" value=""/>
   </properties>
-  <testcase classname="Login" name="Realizar login com sucesso" time="18.126"/>
+  <testcase classname="Login" name="Realizar login com sucesso" time="30.808">
+    <error message="Expected condition failed: waiting for visibility of [[ChromeDriver: chrome on MAC (35cce8f38cbe0dfa1919ba73ffd4c3f0)] -&gt; xpath: //span[text()=&apos;Login&apos;]] (tried for 20 second(s) with 500 milliseconds interval)
+Build info: version: &apos;3.141.59&apos;, revision: &apos;e82be7d358&apos;, time: &apos;2018-11-14T08:17:03&apos;
+System info: host: &apos;MacBook-Pro-de-Celso.local&apos;, ip: &apos;2804:14c:a9:87ca:c868:6f35:7006:13d9%en0&apos;, os.name: &apos;Mac OS X&apos;, os.arch: &apos;x86_64&apos;, os.version: &apos;10.14.6&apos;, java.version: &apos;1.8.0_181&apos;
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 78.0.3904.87, chrome: {chromedriverVersion: 78.0.3904.70 (edb9c9f3de024..., userDataDir: /var/folders/gs/36_mxxyx4c3...}, goog:chromeOptions: {debuggerAddress: localhost:53361}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: MAC, platformName: MAC, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify}
+Session ID: 35cce8f38cbe0dfa1919ba73ffd4c3f0" type="org.openqa.selenium.TimeoutException">org.openqa.selenium.TimeoutException: Expected condition failed: waiting for visibility of [[ChromeDriver: chrome on MAC (35cce8f38cbe0dfa1919ba73ffd4c3f0)] -&gt; xpath: //span[text()=&apos;Login&apos;]] (tried for 20 second(s) with 500 milliseconds interval)
+Build info: version: &apos;3.141.59&apos;, revision: &apos;e82be7d358&apos;, time: &apos;2018-11-14T08:17:03&apos;
+System info: host: &apos;MacBook-Pro-de-Celso.local&apos;, ip: &apos;2804:14c:a9:87ca:c868:6f35:7006:13d9%en0&apos;, os.name: &apos;Mac OS X&apos;, os.arch: &apos;x86_64&apos;, os.version: &apos;10.14.6&apos;, java.version: &apos;1.8.0_181&apos;
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 78.0.3904.87, chrome: {chromedriverVersion: 78.0.3904.70 (edb9c9f3de024..., userDataDir: /var/folders/gs/36_mxxyx4c3...}, goog:chromeOptions: {debuggerAddress: localhost:53361}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: MAC, platformName: MAC, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify}
+Session ID: 35cce8f38cbe0dfa1919ba73ffd4c3f0
+	at org.openqa.selenium.support.ui.WebDriverWait.timeoutException(WebDriverWait.java:95)
+	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:272)
+	at curso.treinamento.utils.Helper.aguardar_elemento_visivel(Helper.java:33)
+	at curso.treinamento.pages.LoginPage.validar_pagina(LoginPage.java:57)
+	at curso.treinamento.steps.LoginSteps.que_eu_deseje_logar_no_sistema(LoginSteps.java:25)
+	at ✽.que eu esteja na tela de login(file:src/test/resources/features/login.feature:7)
+</error>
+    <system-out>Funcionalidade: Login
+
+  @LoginComSucesso
+  Cenário: Realizar login com sucesso                                          # src/test/resources/features/login.feature:6
+    Dado que eu esteja na tela de login                                        # LoginSteps.que_eu_deseje_logar_no_sistema()
+      org.openqa.selenium.TimeoutException: Expected condition failed: waiting for visibility of [[ChromeDriver: chrome on MAC (35cce8f38cbe0dfa1919ba73ffd4c3f0)] -&gt; xpath: //span[text()=&apos;Login&apos;]] (tried for 20 second(s) with 500 milliseconds interval)
+Build info: version: &apos;3.141.59&apos;, revision: &apos;e82be7d358&apos;, time: &apos;2018-11-14T08:17:03&apos;
+System info: host: &apos;MacBook-Pro-de-Celso.local&apos;, ip: &apos;2804:14c:a9:87ca:c868:6f35:7006:13d9%en0&apos;, os.name: &apos;Mac OS X&apos;, os.arch: &apos;x86_64&apos;, os.version: &apos;10.14.6&apos;, java.version: &apos;1.8.0_181&apos;
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 78.0.3904.87, chrome: {chromedriverVersion: 78.0.3904.70 (edb9c9f3de024..., userDataDir: /var/folders/gs/36_mxxyx4c3...}, goog:chromeOptions: {debuggerAddress: localhost:53361}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: MAC, platformName: MAC, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify}
+Session ID: 35cce8f38cbe0dfa1919ba73ffd4c3f0
+	at org.openqa.selenium.support.ui.WebDriverWait.timeoutException(WebDriverWait.java:95)
+	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:272)
+	at curso.treinamento.utils.Helper.aguardar_elemento_visivel(Helper.java:33)
+	at curso.treinamento.pages.LoginPage.validar_pagina(LoginPage.java:57)
+	at curso.treinamento.steps.LoginSteps.que_eu_deseje_logar_no_sistema(LoginSteps.java:25)
+	at ✽.que eu esteja na tela de login(file:src/test/resources/features/login.feature:7)
+
+    Quando faço login com o usuário &quot;admin@phptravels.com&quot; e senha &quot;demoadmin&quot; # LoginSteps.faco_login_com_o_usuário_e_senha(String,String)
+    Então sou autenticado com sucesso                                          # LoginSteps.sou_autenticado_com_sucesso()
+</system-out>
+    <system-err>out 31, 2019 11:18:27 PM cucumber.runtime.java.ObjectFactoryLoader loadSingleObjectFactory
+ADVERTÊNCIA: Use deprecated reflections to load ObjectFactory.
+Starting ChromeDriver 78.0.3904.70 (edb9c9f3de0247fd912a77b7f6cae7447f6d3ad5-refs/branch-heads/3904@{#800}) on port 26124
+Only local connections are allowed.
+Please protect ports used by ChromeDriver and related test frameworks to prevent access by malicious code.
+[1572574708.097][WARNING]: FromSockAddr failed on netmask
+out 31, 2019 11:18:30 PM org.openqa.selenium.remote.ProtocolHandshake createSession
+INFORMAÇÕES: Detected dialect: W3C
+</system-err>
+  </testcase>
+  <testcase classname="Login" name="Tentativa de Login com email inválido" time="9.712"/>
 </testsuite>
