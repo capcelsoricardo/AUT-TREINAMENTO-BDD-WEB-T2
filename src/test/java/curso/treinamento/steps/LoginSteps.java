@@ -3,9 +3,10 @@ package curso.treinamento.steps;
 
 import org.junit.Assert;
 
-import cucumber.api.java.pt.Dado;
-import cucumber.api.java.pt.Então;
-import cucumber.api.java.pt.Quando;
+import io.cucumber.java.pt.Dado;
+import io.cucumber.java.pt.Então;
+import io.cucumber.java.pt.Quando;
+
 import curso.treinamento.pages.HomePage;
 import curso.treinamento.pages.LoginPage;
 import curso.treinamento.setup.Hooks;

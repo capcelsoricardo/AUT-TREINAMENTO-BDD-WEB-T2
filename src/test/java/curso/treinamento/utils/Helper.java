@@ -2,6 +2,7 @@ package curso.treinamento.utils;
 
 import java.io.File;
 import java.io.IOException;
+import java.time.Duration;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
@@ -13,28 +14,36 @@ import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
+import org.openqa.selenium.support.ui.FluentWait;
+import org.openqa.selenium.support.ui.Wait;
 
-import cucumber.api.Scenario;
 import curso.treinamento.setup.Hooks;
 import io.cucumber.datatable.DataTable;
+import io.cucumber.java.Scenario;
 
 public class Helper {
 	
 	public static List<Map<String, String>> dataTable;
 		
 	public static void aguardar_elemento_presente(By by, int timeout) { 
-		WebDriverWait aguardar = new WebDriverWait(Hooks.getDriver(), timeout);
+		
+		Wait aguardar = new FluentWait<>(Hooks.getDriver()).withTimeout(Duration.ofSeconds(timeout))
+				.pollingEvery(Duration.ofSeconds(1)).ignoring(Exception.class);
+		
 		aguardar.until(ExpectedConditions.presenceOfElementLocated(by));
 	}
 	
 	public static void aguardar_elemento_visivel(WebElement elemento, int timeout) { 		
-		WebDriverWait aguardar = new WebDriverWait(Hooks.getDriver(), timeout);
+		Wait aguardar = new FluentWait<>(Hooks.getDriver()).withTimeout(Duration.ofSeconds(timeout))
+				.pollingEvery(Duration.ofSeconds(1)).ignoring(Exception.class);
+		
 		aguardar.until(ExpectedConditions.visibilityOf(elemento));		
 	}
 	
 	public static void aguardar_elemento_clicavel(WebElement elemento, int timeout) {
-		WebDriverWait aguardar = new WebDriverWait(Hooks.getDriver(), timeout);
+		Wait aguardar = new FluentWait<>(Hooks.getDriver()).withTimeout(Duration.ofSeconds(timeout))
+				.pollingEvery(Duration.ofSeconds(1)).ignoring(Exception.class);
+		
 		aguardar.until(ExpectedConditions.elementToBeClickable(elemento));
 	}
 	
@@ -78,7 +87,7 @@ public class Helper {
 		} catch (Exception e) {}		
 	}
 	
-	public static void screenshot(Scenario scenario) {
+	public static void screenshot(Scenario scenario) {		
 
 		String nomeEvidencia = scenario.getName().replace(" ", "_")+ "_" + scenario.getStatus().toString() + ".jpg";
 
